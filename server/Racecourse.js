@@ -33,6 +33,7 @@ class Racecourse {
                     });
                 } else {
                     statusFunction('Deploying contract...');
+                    console.log(JSON.stringify(raceContract))
                     this.raceContract = raceContract.new({from: web3.eth.accounts[0], gasPrice: 0, gas: 5000000}).then((instance) => {
                         statusFunction('Contract successfully deployed')
                         this.contractInstance = instance;
@@ -46,10 +47,10 @@ class Racecourse {
                         reject('Error deploying contract: ' + err);
                     });
                     
-                    // Send a transaction to force the block to be mined with the contract
-                    setTimeout(() => {
-                        web3.eth.sendTransaction({from: web3.eth.accounts[0], gasPrice: 0, gas: 5000000});
-                    }, 1000);
+                    // // Send a transaction to force the block to be mined with the contract
+                    // setTimeout(() => {
+                    //     web3.eth.sendTransaction({from: web3.eth.accounts[0], gasPrice: 0, gas: 5000000});
+                    // }, 1000);
                 }
     
             } else {

@@ -52,7 +52,6 @@ io.on('connection', (socket) => {
 
 });
 
-
 let handleLogin = (socket, url, user, password, contractAddress, eventListener) => {
 
     index1 = url.indexOf(':', 8);
